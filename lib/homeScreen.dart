@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:simple_shadow/simple_shadow.dart';
 
+import 'lists/beeProudact.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -36,7 +38,10 @@ class HomeScreen extends StatelessWidget {
               children: [
                 InkWell(
                   onTap: () {
-                    // Navigate to products page
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const BeeProdacts()),
+                    );
                   },
                   child: Container(
                     height: 200,
@@ -156,7 +161,7 @@ class HomeScreen extends StatelessWidget {
             // Navigate to home page
           },
           child: const Icon(Icons.home , color: Color(0xFFF1A661),),
-          backgroundColor: Color(0xFFFee5c8),
+          backgroundColor: const Color(0xFFFee5c8),
 
         ),
       ),
@@ -169,7 +174,7 @@ class HomeScreen extends StatelessWidget {
         child: BottomAppBar(
 
           shape: const CircularNotchedRectangle(),
-          color: Color(0xFFF1A661),
+          color: const Color(0xFFF1A661),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
