@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:simple_shadow/simple_shadow.dart';
 
-import 'lists/beeProudact.dart';
+import 'lists/beeProduct.dart';
 
 void main() {
   runApp(MyApp());
