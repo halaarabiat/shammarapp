@@ -40,7 +40,7 @@ class HomeScreen extends StatelessWidget {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const BeeProdacts()),
+                      MaterialPageRoute(builder: (context) => const BeeProducts()),
                     );
                   },
                   child: Container(

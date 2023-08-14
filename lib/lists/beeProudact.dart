@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:shammarapp/details.dart';
 
-class BeeProdacts extends StatefulWidget {
+class BeeProducts extends StatefulWidget {
 
-  const BeeProdacts({Key? key}) : super(key: key);
+  const BeeProducts({Key? key}) : super(key: key);
 
   @override
-  State<BeeProdacts> createState() => _BeeProdactsState();
+  State<BeeProducts> createState() => _BeeProductsState();
 }
 
-class _BeeProdactsState extends State<BeeProdacts> {
+class _BeeProductsState extends State<BeeProducts> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
