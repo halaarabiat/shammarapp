@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "65589408023",
+    "project_id": "shammar-shop-app",
+    "storage_bucket": "shammar-shop-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:65589408023:android:ce8352e1320fc884e0c752",
+        "android_client_info": {
+          "package_name": "com.example.shammarapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "65589408023-uo4k1n63ds10s8hrcjgij1ska7820u9l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyByDAOtlyvyzJYA861bCtmMH51myspDgEk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "65589408023-uo4k1n63ds10s8hrcjgij1ska7820u9l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

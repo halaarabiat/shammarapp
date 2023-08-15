@@ -32,6 +32,11 @@ dependencies:
     sdk: flutter
   simple_shadow:
   regexpattern: ^2.5.0
+  firebase_core: ^2.15.0
+  firebase_auth: ^4.7.2
+  cloud_functions: ^4.3.4
+  get: ^4.6.5
+  image_picker: ^1.0.2
 
 
   # The following adds the Cupertino Icons font to your application.

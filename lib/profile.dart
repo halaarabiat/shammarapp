@@ -1,57 +1,49 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MyApp());
-}
+class ProfilePage extends StatelessWidget {
+  final String fullName;
+  final String email;
+  final String imageUrl; // URL to the user's profile image
 
-class MyApp extends StatelessWidget {
+  ProfilePage({required this.fullName, required this.email, required this.imageUrl});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: ProfileScreen(),
-    );
-  }
-}
-
-class ProfileScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    // Simulated user data
-    String userName = "John Doe";
-    List<String> pastOrders = ["Order #123", "Order #456", "Order #789"];
-
     return Scaffold(
       appBar: AppBar(
         title: Text('Profile'),
       ),
-      body: Padding(
-        padding: EdgeInsets.all(16),
+      body: Center(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              'Hello, $userName!',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            CircleAvatar(
+              radius: 50,
+              backgroundImage: NetworkImage(imageUrl),
             ),
-            SizedBox(height: 16),
+            SizedBox(height: 20),
             Text(
-              'Past Orders:',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              'Full Name: $fullName',
+              style: TextStyle(fontSize: 18),
             ),
-            SizedBox(height: 8),
-            Expanded(
-              child: ListView.builder(
-                itemCount: pastOrders.length,
-                itemBuilder: (context, index) {
-                  return ListTile(
-                    title: Text(pastOrders[index]),
-                  );
-                },
-              ),
+            SizedBox(height: 10),
+            Text(
+              'Email: $email',
+              style: TextStyle(fontSize: 16),
             ),
           ],
         ),
       ),
     );
   }
+}
+
+void main() {
+  runApp(MaterialApp(
+    home: ProfilePage(
+      fullName: 'John Doe',
+      email: 'john.doe@example.com',
+      imageUrl: 'https://example.com/profile-image.jpg',
+    ),
+  ));
 }

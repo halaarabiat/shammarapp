@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:regexpattern/regexpattern.dart';
+import 'package:shammarapp/homeScreen.dart';
 
 import 'forget_password_screen.dart';
 
@@ -188,7 +190,19 @@ class _MyLoginSignupScreenState extends State<MyLoginSignupScreen> {
                       ),
                       const SizedBox(height: 20),
                       ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                      FirebaseAuth.instance.signInWithEmailAndPassword(email: _EmailController.text, password: _PasswordController.text).then((value) {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(builder: (context) => HomeScreen()),
+                        );
+                      }).onError((error, stackTrace) {
+                        print("Error");
+                      });
+
+
+
+                        },
                         style: ElevatedButton.styleFrom(
                           primary:
                           _showLoginScreen ? const Color(0xFFFee5c8) : null,
@@ -282,7 +296,19 @@ class _MyLoginSignupScreenState extends State<MyLoginSignupScreen> {
                         ),
                         const SizedBox(height: 20),
                         ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            FirebaseAuth.instance.createUserWithEmailAndPassword(email: _EmailController.text, password: _PasswordController.text)
+                                .then((value) {
+                                  print("create new account");
+                              Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(builder: (context) => HomeScreen()),
+                              );
+                            })
+                                .catchError((error, stackTrace) {
+                              print("Error ${error.toString()}");
+                            });
+                          },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: const Color(0xFFFee5c8),
                             padding: const EdgeInsets.symmetric(

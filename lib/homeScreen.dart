@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:shammarapp/profile.dart';
 import 'package:simple_shadow/simple_shadow.dart';
 
-import 'lists/beeProduct.dart';
+import 'test/beeProduct.dart';
 
 void main() {
   runApp(MyApp());
@@ -38,10 +41,8 @@ class HomeScreen extends StatelessWidget {
               children: [
                 InkWell(
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const BeeProducts()),
-                    );
+                    Get.to(()=> const BeeProducts());
+
                   },
                   child: Container(
                     height: 200,
@@ -181,8 +182,11 @@ class HomeScreen extends StatelessWidget {
               IconButton(
                 icon: const Icon(Icons.person , color: Color(0xFFFee5c8),),
                 onPressed: () {
-                  // Navigate to profile page
-                },
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) =>ProfilePage(fullName: '', email: '', imageUrl: '',))
+                  );}
+                                  ,
               ),
               IconButton(
                 icon: const Icon(Icons.shopping_cart , color: Color(0xFFFee5c8)),

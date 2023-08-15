@@ -1,4 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:regexpattern/regexpattern.dart';
+import 'package:shammarapp/register/SignUp.dart';
 
 class ForgotPasswordScreen extends StatelessWidget {
   final TextEditingController _EmailController = TextEditingController();
@@ -63,12 +66,12 @@ class ForgotPasswordScreen extends StatelessWidget {
                   controller: _EmailController,
                   focusNode: _EmailFocuse,
                   validator: (value) {
-                    if (value!.trim().isEmpty) {
-                      return ("This Field is required");
-
+                    if (value!.isEmpty) {
+                      return ("This field is required");
                     }
-
-                    else {
+                    if (!value.isEmail()) {
+                      return ("This is not a valid email");
+                    } else {
                       return null;
                     }
                   },
@@ -77,7 +80,17 @@ class ForgotPasswordScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 20),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    FirebaseAuth.instance.sendPasswordResetEmail(email: _EmailController.text).then((value) {
+                      Navigator.of(context).pop();
+
+                    }).onError((error, stackTrace) {
+                      print("Error");
+                    });
+
+
+
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFFFee5c8),
                     padding: const EdgeInsets.symmetric(
